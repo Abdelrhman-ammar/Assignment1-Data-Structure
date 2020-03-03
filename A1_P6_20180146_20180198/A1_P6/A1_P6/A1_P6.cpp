@@ -1,20 +1,187 @@
-// A1_P6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+using namespace std;
+class StudentName {
+private:
+     string name;
+public:
+    int get_no_space()
+    {
+        int no_space = 0;
+        for (int i = 0; i < name.length(); i++)
+        {
+            if (name[i] == ' ')
+            {
+                no_space++;
+            }
+        }
+        return no_space;
+    }
+    StudentName()
+    {
+        int no_space = 0;
+        string last_word = "";
+        cout << "enter name: " << endl;
+        getline(cin,name);
+        while(name.empty())
+        {
+            cout << "enter name: " << endl;
+            getline(cin, name);
+        }
+        no_space = get_no_space();
+        if (no_space == 1)
+        {
+            for (int i = name.length()-1;i>-1; i--)
+            {
+                if (name[i] != ' ')
+                {
+                    last_word += name[i];
+                }
+                else
+                {
+                    break;
+                }
+                
+            }
+            reverse(last_word.begin(), last_word.end());
+            name =name+" "+last_word;
+            
+        }
+        else if (no_space == 0)
+        {
+            name = name + " " + name + " " + name;
+        }
 
+         
+        
+    }
+    void print()
+    {
+        int counter = 1;
+        cout << "(" << counter << ")";
+        for (int i = 0; i < name.length(); i++)
+        {
+            
+            if (name[i] != ' ')
+                cout << name[i];
+            else
+            {
+                counter++;
+                cout << endl;
+                cout << "(" << counter << ")";
+            }
+        }
+        cout << endl;
+    }
+    string word_at_position(int position)
+    {
+        string w="";
+        int spaces = 0;
+        for (int i = 0; i < name.length(); i++)
+        {
+            if (name[i] != ' ')
+            {
+                if (position - 1 == spaces)
+                {
+                    w += name[i];
+                }
+            }
+            else
+            {
+                spaces++;
+            }
+        }
+        return w;
+    }
+   
+    void  replace(int i,int j)
+    {
+        int spaces = get_no_space();
+        if (i > spaces + 1 || j > spaces + 1||i<0||j<0)
+
+        {
+            cout << "false" << endl;
+        }
+
+        else
+        {
+            int counter = 0;
+            string word_for_i, word_for_j;
+            string *arr= new string[spaces +1];
+            for (int i = 0; i < name.length(); i++)
+            {
+                if (name[i] == ' ')
+                {
+                    counter++;
+                    continue;
+                }
+                else
+                {
+                    arr[counter] += name[i];
+                }
+            }
+           
+            word_for_i = word_at_position(i);
+            word_for_j = word_at_position(j);
+            arr[i-1]= word_at_position(j);
+            arr[j-1] = word_at_position(i);
+
+            name = "";
+            for (int i = 0; i < spaces + 1; i++)
+            {
+                 
+                if (i == 0)
+                {
+                    name = name + arr[i];
+
+                }
+                else
+                {
+                    name = name +" " +arr[i];
+                }
+
+            }
+
+
+        }
+
+                        
+       
+        
+    }
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+
+    cout << "4" << endl;
+    class StudentName s4;
+    s4.replace(1, -1);
+    s4.print();
+    cout << endl;   
+
+
+    cout << "test1" << endl;
+    class StudentName s1;
+    s1.replace(1, 2);
+    s1.print();
+    cout << endl;
+
+    cout << "2" << endl;
+    class StudentName s2;
+    s2.replace(3, 2);
+    s2.print();
+    cout << endl;
+
+    cout << "3" << endl;
+    class StudentName s3;
+    s3.replace(1, 1);
+    s3.print();
+    cout << endl;
+
+   
+
+    
+     
+
+   
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
