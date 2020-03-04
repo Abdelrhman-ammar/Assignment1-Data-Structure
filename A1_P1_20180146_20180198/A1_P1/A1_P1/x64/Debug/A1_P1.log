@@ -1,0 +1,6 @@
+﻿  BigDecimalInt.cpp
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(76,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(77,45): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(80,64): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(112,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  A1_P1.vcxproj -> C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\x64\Debug\A1_P1.exe
