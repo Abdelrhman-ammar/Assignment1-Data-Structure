@@ -18,6 +18,7 @@
     <ClCompile Include="A1_P1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="BigDecimalInt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -26,5 +27,10 @@
     <ClInclude Include="BigDecimalInt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> c66fa7d540b51788d9bdde07905876d364271091
   </ItemGroup>
 </Project>

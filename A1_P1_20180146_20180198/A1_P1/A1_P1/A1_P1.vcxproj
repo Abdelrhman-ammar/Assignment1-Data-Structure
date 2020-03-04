@@ -148,10 +148,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="A1_P1.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="BigDecimalInt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigDecimalInt.h" />
+=======
+    <ClCompile Include="Source.cpp" />
+>>>>>>> c66fa7d540b51788d9bdde07905876d364271091
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

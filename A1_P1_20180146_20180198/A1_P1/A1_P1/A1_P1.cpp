@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -21,3 +22,6 @@ int main()
 }
 
 //cout << typeid(char(('2' - '0') + ('1' - '0'))).name() << endl;
+=======
+ 
+>>>>>>> c66fa7d540b51788d9bdde07905876d364271091
