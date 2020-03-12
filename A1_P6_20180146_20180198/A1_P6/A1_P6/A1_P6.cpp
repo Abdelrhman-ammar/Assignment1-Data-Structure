@@ -17,6 +17,42 @@ public:
         }
         return no_space;
     }
+    void clear_name()
+    {
+        string new_name = "";
+        int counter = 0,len_word=name.length();
+        for (int i = 0; i < len_word; i++)
+        {
+            if (name[i] == ' '&&name[i+1]!=' ')
+            {
+                if (new_name.empty())
+                {
+                    continue;
+                }
+                else if(i!=len_word-1)
+                {
+                     
+                    new_name += " ";
+                }
+            }
+            else if (name[i] == ' ' && name[i + 1] == ' ')
+            {
+                continue;
+            }
+            else
+            {
+                if (name[i]==' ')
+                {
+                    continue;
+                }
+                
+                new_name += name[i];
+            }
+            
+        }
+        name = new_name;
+        
+    }
     StudentName()
     {
         int no_space = 0;
@@ -28,6 +64,7 @@ public:
             cout << "enter name: " << endl;
             getline(cin, name);
         }
+        clear_name();
         no_space = get_no_space();
         if (no_space == 1)
         {
@@ -40,8 +77,7 @@ public:
                 else
                 {
                     break;
-                }
-                
+                }  
             }
             reverse(last_word.begin(), last_word.end());
             name =name+" "+last_word;
@@ -51,9 +87,7 @@ public:
         {
             name = name + " " + name + " " + name;
         }
-
-         
-        
+  
     }
     void print()
     {
@@ -93,7 +127,6 @@ public:
         }
         return w;
     }
-   
     void  replace(int i,int j)
     {
         int spaces = get_no_space();
@@ -152,19 +185,15 @@ public:
 };
 int main()
 {
-
-    cout << "4" << endl;
+    
+  
+    
+   
+    cout << "1" << endl;
     class StudentName s4;
     s4.replace(1, -1);
     s4.print();
-    cout << endl;   
-
-
-    cout << "test1" << endl;
-    class StudentName s1;
-    s1.replace(1, 2);
-    s1.print();
-    cout << endl;
+    cout << endl; 
 
     cout << "2" << endl;
     class StudentName s2;
@@ -177,11 +206,13 @@ int main()
     s3.replace(1, 1);
     s3.print();
     cout << endl;
-
-   
-
     
-     
+    cout << "4" << endl;
+    class StudentName s1;
+    s1.replace(1, 2);
+    s1.print();
+    cout << endl;
+    
 
    
 }
