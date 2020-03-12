@@ -4,6 +4,69 @@
 #include<algorithm>
 using namespace std;
 
+string trimNegative(string word)
+{
+	if (word[0] != '-')
+	{
+		return word;
+	}
+	else
+	{
+		string result = "";
+		for (int counter = 1; counter < word.length(); counter++)
+		{
+			result += word[counter];
+		}
+		return result;
+	}
+}
+
+int getDigites(int number)
+{
+	if (number == 0)
+		return number;
+	getDigites(number / 10);
+}
+
+bool isbigger(string number1, string number2)
+{
+	int sizeNumber1 = number1.length();
+	int sizeNumber2 = number2.length();
+	if (sizeNumber1 > sizeNumber2)
+	{
+		return true;
+	}
+	else if (sizeNumber1 < sizeNumber2)
+	{
+		return false;
+	}
+	else
+	{
+		for (int counter = 0; counter < sizeNumber1; counter++)
+		{
+			if (number1[counter] > number2[counter])
+			{
+				return true;
+			}
+			else if (number1[counter] < number2[counter])
+			{
+				return false;
+			}
+		}
+	}
+	return false;
+}
+
+string reverse(string word)
+{
+	string reversedWord = "";
+	for (int counter = word.length() - 1; counter >= 0; counter--)
+	{
+		reversedWord += word[counter];
+	}
+	return reversedWord;
+}
+
 
 bool isNumber(string inputString)
 {
@@ -22,22 +85,6 @@ bool isNumber(string inputString)
 }
 
 
-char addTwoDigit(char ch1, char ch2, int& reminder)
-{
-	int sum = 0;
-	sum = ch1 - '0' + ch2 - '0' + reminder;
-	if (sum <= 9)
-	{
-		reminder = 0;
-		return char(sum + '0');
-	}
-	else
-	{
-		reminder = 1;
-		return char(sum - 10 + '0');
-	}
-}
-
 BigDecimalInt::BigDecimalInt() : number("00000000000000000000000000000000") {}
 
 BigDecimalInt::BigDecimalInt(string number)
@@ -54,10 +101,35 @@ BigDecimalInt::BigDecimalInt(string number)
 	}
 }
 
-/*BigDecimalInt(int number)
+BigDecimalInt::BigDecimalInt(int number)
 {
+	string word;
+	word = "";
+	if (number == 0)
+	{
+		this->number = "0";
+	}
+	else
+	{
+		bool negative = false;
+		if (number < 0)
+		{
+			number *= -1;
+			negative = true;
+		}
+		while (number != 0)
+		{
+			word += number % 10 + '0';
+			number /= 10;
+		}
+		if (negative == true)
+		{
+			word += "-";
+		}
+		this->number = reverse(word);
+	}
+}
 
-}*/
 
 void BigDecimalInt::sitnumber()
 {
@@ -71,6 +143,76 @@ void BigDecimalInt::sitnumber()
 	}
 }
 
+char BigDecimalInt::addTwoDigit(char ch1, char ch2, int& reminder)
+{
+	int sum = 0;
+	sum = ch1 - '0' + ch2 - '0' + reminder;
+	if (sum <= 9)
+	{
+		reminder = 0;
+		return char(sum + '0');
+	}
+	else
+	{
+		reminder = 1;
+		return char(sum - 10 + '0');
+	}
+}
+
+BigDecimalInt BigDecimalInt::operator-(BigDecimalInt const object)
+{
+	BigDecimalInt resultObject;
+	bool negative = false;
+	string number1Trim = trimNegative(number);
+	string number2Trim = trimNegative(object.number);
+	string number1 = reverse(number1Trim);
+	string number2 = reverse(number2Trim);
+	if (!isbigger(number1Trim, number2Trim))
+	{
+		string temp = number1;
+		number1 = number2;
+		number2 = temp;
+		negative = true;
+	}
+	string result = "";
+	int carry = 0, substractDigit = 0;
+	int sizeNumber1 = number1.length();
+	int sizeNumber2 = number2.length();
+	for (int counter = 0; counter < sizeNumber2; counter++)
+	{
+		substractDigit = ((number1[counter] - '0') - (number2[counter] - '0') - carry);
+		if (substractDigit < 0)
+		{
+			substractDigit += 10;
+			carry = 1;
+		}
+		else
+		{
+			carry = 0;
+		}
+		result += substractDigit + '0';
+	}
+	for (int counter = sizeNumber2; counter < sizeNumber1; counter++)
+	{
+		substractDigit = ((number1[counter] - '0') - carry);
+		if (substractDigit < 0)
+		{
+			substractDigit += 10;
+			carry = 1;
+		}
+		else
+		{
+			carry = 0;
+		}
+		result += substractDigit + '0';
+	}
+	if (negative == true)
+	{
+		result += '-';
+	}
+	resultObject.number = reverse(result);
+	return resultObject;
+}
 
 BigDecimalInt BigDecimalInt::operator+(BigDecimalInt const object)
 {
@@ -103,7 +245,6 @@ BigDecimalInt BigDecimalInt::operator+(BigDecimalInt const object)
 			else
 				ch2 = '0';
 			sum += addTwoDigit(ch1, ch2, reminder);
-			cout << "ch1=" << ch1 << "	" << "ch2" << ch2 << endl;
 			counter--;
 		}
 		if (reminder == 1)
@@ -116,6 +257,10 @@ BigDecimalInt BigDecimalInt::operator+(BigDecimalInt const object)
 			result.number += sum[counter];
 			counter--;
 		}
+	}
+	else
+	{
+		result = *this - object;
 	}
 	return result;
 }

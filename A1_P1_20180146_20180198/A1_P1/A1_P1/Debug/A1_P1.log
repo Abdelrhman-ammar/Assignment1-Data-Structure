@@ -1,3 +1,7 @@
-﻿  BigDecimalInt.cpp
-C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(10,32): warning C4018: '<': signed/unsigned mismatch
+﻿  A1_P1.cpp
+  BigDecimalInt.cpp
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(16,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(73,32): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\A1_P1\BigDecimalInt.cpp(29): warning C4715: 'getDigites': not all control paths return a value
   A1_P1.vcxproj -> C:\Users\DELL\Desktop\assignment data structure\A1_P1_20180146_20180198\A1_P1\Debug\A1_P1.exe

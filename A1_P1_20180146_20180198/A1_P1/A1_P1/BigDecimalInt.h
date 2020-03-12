@@ -10,9 +10,12 @@ public:
 	BigDecimalInt(string number);
 	BigDecimalInt(int number);
 	void sitnumber();
+	char addTwoDigit(char ch1, char ch2, int& reminder);
 	BigDecimalInt operator+(BigDecimalInt const object);
+	BigDecimalInt operator-(BigDecimalInt const object);
 	friend bool isNumber(string inputString);
-	friend char addTwoDigit(char ch1, char ch2, int& reminder);
+	friend string reverse(string word);
+	friend bool isbigger(string number1, string number2);
 	friend istream& operator>>(istream& input, BigDecimalInt& object);
 	friend ostream& operator<<(ostream& output, const BigDecimalInt& object);
 };

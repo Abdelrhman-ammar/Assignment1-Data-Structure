@@ -4,18 +4,32 @@
 #include "BigDecimalInt.h"
 using namespace std;
 
+BigDecimalInt add(BigDecimalInt num1, BigDecimalInt num2)
+{
+    BigDecimalInt result = num1 + num2;
+    cout << "sum of " << num1 << " and " << num2 << " = " << result << endl;
+    return result;
+}
+
+
 int main()
 {
-    BigDecimalInt x("-18"), y("-1110"), z;
-    //cin >> x;
-    z = x + y;
-    cout << z << endl;
-    //cout << ('2'-'0')+('1'-'0') << endl;*/
-    /*string s = "ahme";
-    s += 'd';
-    cout << s << endl;*/
-    /*int reminder = 0;
-    cout << addTwoDigit('9', '9', reminder);
-    cout << reminder << endl;**/
+    BigDecimalInt number1, number2, result;
+    //BigDecimalInt x(145), y("23");
+    //cout << x + y << endl;
+    string exit;
+    while (true)
+    {
+        cout << "Enter 'Q' if you want to Exist else Enter any thing." << endl;
+        cin >> exit;
+        if (exit == "Q")
+        {
+            return 0;
+        }
+        cin.ignore();
+        number1.sitnumber();
+        number2.sitnumber();
+        add(number1, number2);
+    }
     return 0;
 }
