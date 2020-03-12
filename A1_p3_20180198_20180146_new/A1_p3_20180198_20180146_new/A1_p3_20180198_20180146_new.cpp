@@ -33,7 +33,7 @@ public:
             {
                 cout << "enter row frist and col second for the two matrix" << endl;
                 cin >> ro >> col;
-                while (ro < 0 || col < 0)
+                while (ro < 1 || col < 1)
                 {
                     cout << "enter right value" << endl;
                     cout << "enter row frist and col second for the two matrix" << endl;
@@ -43,6 +43,7 @@ public:
                 cin >> m1;
                 cin >> m2;
                 m3 = m1 + m2;
+                cout << "the sum is" << endl;
                 cout << m3 ;
                 
 
@@ -52,7 +53,7 @@ public:
             { 
                 cout << "enter row frist and col second for the two matrix" << endl;
                 cin >> ro >> col;
-                while (ro < 0 || col < 0)
+                while (ro < 1 || col < 1)
                 {
                     cout << "enter right value" << endl;
                     cout << "enter row frist and col second for the two matrix" << endl;
@@ -62,6 +63,7 @@ public:
                 cin >> m1;
                 cin >> m2;
                 m3 = m1 - m2;
+                cout << "the result is" << endl;
                 cout << m3;
             }
             else if (choise_from_user == "3")
@@ -69,7 +71,7 @@ public:
                 int ro2, col2;
                 cout << "enter row frist and col second for the frist_MAtrix:" << endl;
                 cin >> ro >> col;
-                while (ro < 0 || col < 0)
+                while (ro < 1 || col < 1)
                 {
                     cout << "enter right value" << endl;
                     cout << "enter row frist and col second for the frist_MAtrix:" << endl;
@@ -77,7 +79,7 @@ public:
                 }
                 cout << "enter row frist and col second for the second_MAtrix:" << endl;
                 cin >> ro2 >> col2;
-                while (ro < 0 || col < 0|| col != ro2 ) 
+                while (ro < 1 || col < 1|| col != ro2 ) 
                 {
                     cout << "enter right value" << endl;
                    
@@ -87,6 +89,7 @@ public:
                 Matrix<int> m1(ro, col), m2(ro2, col2), m3(ro, col2);
                 cin >> m1;
                 cin >> m2;
+                cout << "the result is" << endl;
                 m3 = m1 * m2;
                 cout << m3;
             }
@@ -94,7 +97,7 @@ public:
             { 
                 cout << "enter row frist and col second for the   matrix" << endl;
                 cin >> ro >> col;
-                while (ro < 0 || col < 0)
+                while (ro < 1 || col < 1)
                 {
                     cout << "enter right value" << endl;
                     cout << "enter row frist and col second for the   matrix" << endl;
@@ -104,6 +107,7 @@ public:
                 cin >> m1;
               
                 m2= m1.transpose();
+                cout << "the result is" << endl;
                 cout << m2;
             }
 
