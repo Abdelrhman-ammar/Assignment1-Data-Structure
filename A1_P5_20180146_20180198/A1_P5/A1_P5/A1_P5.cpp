@@ -1,20 +1,48 @@
-// A1_P5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+
+void filter(string s)
+{
+    static set<string>words;
+    int size = words.size();
+    words.insert(s);
+    if (words.size() > size)
+    {
+        cout << s << endl;
+    }
+}
+
+void RecPermute(string soFar, string rest)
+
+{
+    
+    if (rest == "") // No more characters 
+        filter(soFar);// Print the word 
+    else // Still more chars 
+    // For each remaining char 
+
+        for (int i = 0; i < rest.length(); i++) {
+
+            string next = soFar + rest[i]; // Glue next char 
+
+            string remaining = rest.substr(0, i) + rest.substr(i + 1);
+            RecPermute(next, remaining);
+        }
+
+}
+
+
+void ListPermutations(string word)
+{
+    RecPermute("", word);
+}
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    ListPermutations("Makka");
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
