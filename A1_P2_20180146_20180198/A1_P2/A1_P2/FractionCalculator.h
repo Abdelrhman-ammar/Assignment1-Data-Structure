@@ -17,6 +17,10 @@ public:
 	Fraction division();
 	Fraction multiplication();
 	Fraction supstruction();
+	Fraction addition(Fraction object);
+	Fraction division(Fraction object);
+	Fraction multiplication(Fraction object);
+	Fraction supstruction(Fraction object);
 	Fraction getResult();
 };
 

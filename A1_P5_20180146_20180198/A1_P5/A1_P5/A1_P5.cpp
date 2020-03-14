@@ -11,7 +11,7 @@ void filter(string s)
     words.insert(s);
     if (words.size() > size)
     {
-        cout << s << endl;
+        cout << s << "  ";
     }
 }
 
@@ -43,6 +43,10 @@ void ListPermutations(string word)
 
 int main()
 {
-    ListPermutations("Makka");
+    //ListPermutations("Makka");
+    string str;
+    cout << "Enter The Word:__" << endl;
+    cin >> str;
+    ListPermutations(str);
     return 0;
 }

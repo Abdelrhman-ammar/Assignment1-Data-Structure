@@ -144,17 +144,16 @@ bool Fraction::operator>=(const Fraction object)
 
 istream& operator>>(istream& input, Fraction& object)
 {
-	string divid;
-	cout << "Enter The Fraction:__";
+	string devide;
 	input >> object.numerator;
-	input >> divid;
+	input >> devide;
 	input >> object.denominator;
-	while ((object.denominator == 0 && object.numerator != 0 )|| divid != "/")
+	while ((object.denominator == 0 && object.numerator != 0 )|| devide != "/")
 	{
 		cout << "Error: Denominator value cant be negative and sign must be '/' ex 1/3." << endl;
 		cout << "Enter The Fraction Again:__";
 		input >> object.numerator;
-		input >> divid;
+		input >> devide;
 		input >> object.denominator;
 	}
 	int commonDicisor = greatestCommonDivisors(object.numerator, object.denominator);

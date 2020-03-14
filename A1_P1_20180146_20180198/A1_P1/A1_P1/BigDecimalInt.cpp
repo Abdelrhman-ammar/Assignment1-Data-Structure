@@ -4,6 +4,7 @@
 #include<algorithm>
 using namespace std;
 
+//function to remove '-' from the begining of the string if exist
 string trimNegative(string word)
 {
 	if (word[0] != '-')
@@ -21,13 +22,7 @@ string trimNegative(string word)
 	}
 }
 
-int getDigites(int number)
-{
-	if (number == 0)
-		return number;
-	getDigites(number / 10);
-}
-
+//fuction check if String1 is bigger than string to or not
 bool isbigger(string number1, string number2)
 {
 	int sizeNumber1 = number1.length();
@@ -57,6 +52,7 @@ bool isbigger(string number1, string number2)
 	return false;
 }
 
+//function take string and return the reverse EX: ABC -> CBA
 string reverse(string word)
 {
 	string reversedWord = "";
@@ -67,7 +63,7 @@ string reverse(string word)
 	return reversedWord;
 }
 
-
+//fuction check if all char in the string is number '[0-9]' or not
 bool isNumber(string inputString)
 {
 	for (int counter = 0; counter < inputString.length(); counter++)
@@ -84,9 +80,10 @@ bool isNumber(string inputString)
 	return true;
 }
 
-
+//defaullt constructor set the number = "00000000000000000000000000000000"
 BigDecimalInt::BigDecimalInt() : number("00000000000000000000000000000000") {}
 
+//paramitarize constructor take string
 BigDecimalInt::BigDecimalInt(string number)
 {
 	this->number = number;
@@ -101,6 +98,7 @@ BigDecimalInt::BigDecimalInt(string number)
 	}
 }
 
+//paramitarize constructor take integer
 BigDecimalInt::BigDecimalInt(int number)
 {
 	string word;
@@ -143,6 +141,7 @@ void BigDecimalInt::sitnumber()
 	}
 }
 
+//function add two digit and return result and the reminder
 char BigDecimalInt::addTwoDigit(char ch1, char ch2, int& reminder)
 {
 	int sum = 0;
@@ -159,19 +158,29 @@ char BigDecimalInt::addTwoDigit(char ch1, char ch2, int& reminder)
 	}
 }
 
+
 BigDecimalInt BigDecimalInt::operator-(BigDecimalInt const object)
 {
 	BigDecimalInt resultObject;
 	bool negative = false;
+	//delete negative from two number if exist
 	string number1Trim = trimNegative(number);
 	string number2Trim = trimNegative(object.number);
+	//reverse two number
 	string number1 = reverse(number1Trim);
 	string number2 = reverse(number2Trim);
+	//check if the number 1 is bigger than two or swap 
 	if (!isbigger(number1Trim, number2Trim))
 	{
 		string temp = number1;
 		number1 = number2;
 		number2 = temp;
+		negative = true;
+	}
+	//check if result will be negative or not 
+	else if ((number[0] == '-' && object.number[0] == '-') || (isbigger(number1Trim, number2Trim) && number[0] == '-')
+		|| (!isbigger(number1Trim, number2Trim) && object.number[0] == '-'))
+	{
 		negative = true;
 	}
 	string result = "";
