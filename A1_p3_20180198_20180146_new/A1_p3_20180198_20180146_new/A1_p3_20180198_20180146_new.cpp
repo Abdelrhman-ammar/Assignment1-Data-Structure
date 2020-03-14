@@ -4,6 +4,7 @@
 using namespace std;
 class MatrixCalculator {
 public:
+    //function to show menue for user
     void show_menue()
     {
         cout << "welcome to our MatrixCalculator" << endl;
@@ -12,10 +13,12 @@ public:
         cout << "2- Perform Matrix Subtraction" << endl;
         cout << "3- Perform Matrix Multiplication" << endl;
         cout << "4- Matrix Transpose" << endl;
+        cout << "5- Exit" << endl;
         cout << "enter your choise: ";
 
 
     }
+    //constructor make all operations
     MatrixCalculator()
     {
         string choise_from_user;
@@ -24,11 +27,13 @@ public:
         {
             show_menue();
             cin >> choise_from_user;
-            while (choise_from_user != "1" && choise_from_user != "2"&&choise_from_user != "3"&&choise_from_user != "4")
+            //to check validation of input
+            while (choise_from_user != "1" && choise_from_user != "2"&&choise_from_user != "3"&&choise_from_user != "4" && choise_from_user != "5")
             {
                 cout << "enter right val" << endl;
                 cin >> choise_from_user;
             }
+            //if user enter "1" create two object of Matrix and do addition to them
             if(choise_from_user=="1")
             {
                 cout << "enter row frist and col second for the two matrix" << endl;
@@ -49,6 +54,7 @@ public:
 
 
             }
+            //if user enter "2" create two object of class Matrix and do substraction to them
             else if(choise_from_user == "2")
             { 
                 cout << "enter row frist and col second for the two matrix" << endl;
@@ -66,6 +72,7 @@ public:
                 cout << "the result is" << endl;
                 cout << m3;
             }
+            //if user enter "3" create two object of class Matrix and do multiblying to them
             else if (choise_from_user == "3")
             {
                 int ro2, col2;
@@ -93,6 +100,7 @@ public:
                 m3 = m1 * m2;
                 cout << m3;
             }
+            //if user enter "4" create one object of class Matrix and do transpose
             else if (choise_from_user == "4")
             { 
                 cout << "enter row frist and col second for the   matrix" << endl;
@@ -109,6 +117,11 @@ public:
                 m2= m1.transpose();
                 cout << "the result is" << endl;
                 cout << m2;
+            }
+            //if user enter "5" close the program 
+            else if (choise_from_user == "5")
+            {
+                break;
             }
 
         }

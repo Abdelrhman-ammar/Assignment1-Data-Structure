@@ -5,10 +5,8 @@ template<class T>
 Matrix<T> ::Matrix()
 {
 	 
-}
-
- 
-
+} 
+//constructor to initialize an dynamic 2d array with column and rows
 template<class T>
 Matrix<T>::Matrix(int ro, int col)
 {
@@ -21,34 +19,10 @@ Matrix<T>::Matrix(int ro, int col)
 		matrix[i] = new T[column];
 	}
 }
-
-template<class t>
-void Matrix<t>::setMatrix()
-{
-	cout << "enter the elements of matrix " << endl;
-	for (int ro = 0; ro < row; ro++)
-	{
-		 
-		for (int col = 0; col < column; col++)
-		{
-			cin >> matrix[ro][col];
-		}
-	}
-}
-
-template<class t>
-void Matrix<t>::printMatrix()
-{
-	for (int ro = 0; ro < row; ro++)
-	{
-		for (int col = 0; col < column; col++)
-		{
-			cout << matrix[ro][col] << " " ;
-		}
-		cout << endl;
-	}
-}
-
+ 
+/* operator for substraction two matrix
+   
+*/
 template<class T>
 Matrix<T> Matrix<T>::operator-(Matrix ma)
 {
@@ -62,7 +36,9 @@ Matrix<T> Matrix<T>::operator-(Matrix ma)
 	}
 	return result;
 }
+/* operator for adding two matrix
 
+*/
 template<class T>
 Matrix<T> Matrix<T>::operator+(Matrix ma)
 {
@@ -76,7 +52,9 @@ Matrix<T> Matrix<T>::operator+(Matrix ma)
 	}
 	return result;
 }
-
+/* 
+ operator for multiblying two matrix
+*/
 template<class T>
 Matrix<T> Matrix<T>::operator*(Matrix ma)
 {
@@ -104,7 +82,9 @@ Matrix<T> Matrix<T>::operator*(Matrix ma)
 	return result;
 
 }
-
+/* 
+   operator for transpose the matrix
+*/
 template<class T>
 Matrix<T> Matrix<T>::transpose()
 {

@@ -17,6 +17,7 @@ public:
 	Matrix<T>operator+(Matrix ma);
 	Matrix<T>operator*(Matrix ma);
 	Matrix<T> transpose();
+	//operator to cin the matrix
 	friend istream& operator>>(istream& inp, Matrix<T>& ma) {
 		cout << "enter the matrix " << ma.row << "*" << ma.column << endl;
 		for (int i = 0; i < ma.row; i++)
@@ -28,7 +29,7 @@ public:
 		}
 		return inp;
 	}
-
+	//operator to cout the matrix
 	friend ostream& operator<<(ostream& out, Matrix<T>& ma) {
 		for (int i = 0; i < ma.row; i++)
 		{

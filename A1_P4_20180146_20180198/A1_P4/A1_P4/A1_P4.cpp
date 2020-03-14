@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//recurtion function return 1 if the power is 0
 int power(int a, int n)
 {
     if (n != 0)
@@ -11,6 +12,8 @@ int power(int a, int n)
         return 1;
     }
 }
+//recurtion function return 1 if the power is 0
+//it work easially if the num is even
 int power_2(int a, int n)
 {
     if (n%2== 0)

@@ -5,6 +5,7 @@ class StudentName {
 private:
      string name;
 public:
+    //function loop in the word and get no of spaces
     int get_no_space()
     {
         int no_space = 0;
@@ -17,6 +18,7 @@ public:
         }
         return no_space;
     }
+    //function to remove any space at first or last of string and if there two spaces or more between words it make them one space 
     void clear_name()
     {
         string new_name = "";
@@ -53,6 +55,9 @@ public:
         name = new_name;
         
     }
+    //constructor make the name at the formal shape
+    //if name is word the last two words become the same first
+    //if name is two the last word become like the second
     StudentName()
     {
         int no_space = 0;
@@ -89,6 +94,7 @@ public:
         }
   
     }
+    //function to print name
     void print()
     {
         int counter = 1;
@@ -107,6 +113,7 @@ public:
         }
         cout << endl;
     }
+    //function accept int no and return word at this index
     string word_at_position(int position)
     {
         string w="";
@@ -127,6 +134,7 @@ public:
         }
         return w;
     }
+    //function to replace to word in name
     void  replace(int i,int j)
     {
         int spaces = get_no_space();
